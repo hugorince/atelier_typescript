@@ -1,3 +1,16 @@
+type BasicTypes<T> =
+  | string
+  | number
+  | Array<T>
+  | null
+  | undefined
+  | never
+  | unknown;
+
+type Tuple = [number, string];
+
+const tupleExample: Tuple = [10, "string"];
+
 type DiscriminatedUnion = "email" | "password";
 
 const email: DiscriminatedUnion = "email";
