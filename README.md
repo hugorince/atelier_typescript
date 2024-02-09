@@ -4,7 +4,7 @@
 
 Documentation officielle de TypeScript : [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
 
-Blog et formation poussée avec exercices TypeScript : [https://www.totaltypescript.com/](https://www.totaltypescript.com/)
+Blog et formation poussée (une partie gratuite) avec exercices TypeScript : [https://www.totaltypescript.com/](https://www.totaltypescript.com/)
 
 # Instructions
 
