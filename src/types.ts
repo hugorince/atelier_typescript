@@ -56,3 +56,9 @@ const myButtonFromType: CorrectButtonType = {
 };
 
 type MyButtonFromPathType = (typeof myButtonFromType)["value"];
+
+const numToString = (num: number) => {
+  return num.toString();
+};
+
+type ReturnTypeExample = ReturnType<typeof numToString>;
