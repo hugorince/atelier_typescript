@@ -29,7 +29,7 @@ const path: TemplateLiteral = "/home";
 
 interface Button {
   value: DiscriminatedUnion;
-  path: TemplateLiteral;
+  path?: TemplateLiteral;
 }
 
 interface ButtonInterface extends Omit<Button, "value"> {

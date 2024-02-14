@@ -13,3 +13,13 @@ Vérifiez que vous avez bien node installé et installez les dépendances :
 ```
 npm install
 ```
+
+# Pour lancer la sample app
+
+Rendez-vous dans le dossier sample_app
+
+```
+cd sample_app
+npm install
+npm run dev
+```
