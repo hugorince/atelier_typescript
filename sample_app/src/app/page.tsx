@@ -3,6 +3,7 @@
 import { DataCard, Form } from "@/components";
 import { useState } from "react";
 import { fetchAgifyApi } from "@/utils";
+import classes from "./page.module.css";
 
 export default function Home() {
   const [data, setData] = useState();
@@ -13,7 +14,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className={classes.pageWrapper}>
       <Form handleFormSubmit={handleFormSubmit} />
       {data && <DataCard data={data} />}
     </main>
