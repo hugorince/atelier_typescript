@@ -1,12 +1,6 @@
-export const fetchAgifyApi = async (name) => {
+export const fetchAgifyApi = async <T>(name): Promise<T> => {
   const response = await fetch(
     `https://api.agify.io?name=${name}&country_id=FR`
   );
-
-  if (response.ok) {
-    const data = await response.json();
-    return data;
-  }
-
-  return console.error("something wen wrong");
+  return await response.json();
 };

@@ -18,8 +18,19 @@ export const Form = ({ handleFormSubmit }) => {
 
   return (
     <form onSubmit={onSubmit} className={classes.formWrapper}>
-      <input type="text" value={inputValue} onChange={onChange} />
-      <button type="submit">Check Age</button>
+      <label htmlFor="text_input" className="sr-only">
+        Entre ton nom :
+      </label>
+      <input
+        type="text"
+        id="text_input"
+        value={inputValue}
+        onChange={onChange}
+        placeholder="Entre ton nom"
+        aria-label="Text input"
+        required
+      />
+      <button type="submit">Calcule ton âge</button>
     </form>
   );
 };
