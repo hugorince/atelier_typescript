@@ -1,5 +1,3 @@
-//General types
-
 type BasicTypes<T> =
   | string
   | number
@@ -9,13 +7,19 @@ type BasicTypes<T> =
   | never
   | unknown;
 
+const string = "string";
+
 type Tuple = [number, string];
 
 const tupleExample: Tuple = [10, "string"];
 
-type DiscriminatedUnion = "email" | "password";
+type NotrePremierType = string;
 
-const email: DiscriminatedUnion = "email";
+const notreVariable: NotrePremierType = "12";
+
+type Enum = "email" | "password" | 12;
+
+const email: Enum = 12;
 
 const routes = ["home", "about", "profile", "settings"] as const;
 
@@ -25,18 +29,22 @@ type TemplateLiteral = `/${Routes}`;
 
 const path: TemplateLiteral = "/home";
 
-//type vs interface
+type Person = { name: string; age: number };
+
+type PersonType = keyof Person; // name | age
+
+type PersonTypes = Person[keyof Person];
 
 interface Button {
-  value: DiscriminatedUnion;
+  value: Enum;
   path?: TemplateLiteral;
 }
 
 interface ButtonInterface extends Omit<Button, "value"> {
   value: "name";
+  toto: "toto";
 }
 
-// doesn't throw an error but transforms the type into never
 type ButtonType = Button & {
   value: "name";
 };
@@ -44,6 +52,7 @@ type ButtonType = Button & {
 const myButton: ButtonInterface = {
   value: "name",
   path: "/home",
+  toto: "toto",
 };
 
 type CorrectButtonType = Omit<Button, "value"> & {
@@ -58,7 +67,16 @@ const myButtonFromType: CorrectButtonType = {
 type MyButtonFromPathType = (typeof myButtonFromType)["value"];
 
 const numToString = (num: number) => {
-  return num.toString();
+  return {
+    num: num,
+    str: num.toString(),
+  };
 };
 
 type ReturnTypeExample = ReturnType<typeof numToString>;
+
+type MappedWithNewProperties<T> = {
+  [Properties in keyof T]: T[Properties] | undefined;
+};
+
+type Test = MappedWithNewProperties<Person>;

@@ -1,17 +1,21 @@
 "use client";
 
-import { type SyntheticEvent, useState } from "react";
+import { type SyntheticEvent, type ChangeEvent, useState } from "react";
 import classes from "./form.module.css";
 
-export const Form = ({ handleFormSubmit }) => {
-  const [inputValue, setInputValue] = useState();
+interface FormProps {
+  handleFormSubmit: (param: string) => void;
+}
 
-  const onChange = (e) => {
+export const Form = ({ handleFormSubmit }: FormProps) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setInputValue(e.target.value);
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleFormSubmit(inputValue);
   };
